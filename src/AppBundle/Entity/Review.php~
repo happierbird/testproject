@@ -1,0 +1,30 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\JoinColumn;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="reviews")
+ */
+class Review
+{
+    /**
+     * @ManyToOne(targetEntity="User")
+     * @JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $userId;
+    /**
+     * @ORM\Column(type="string", length=5)
+     */
+    protected $rate;
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $published;
+
+
+}
